@@ -7,8 +7,9 @@ function Confirm({ state }) {
     <div className="container">
       <div className="row">
         <div className="col-4 offset-4">
+          <h3 className="text-center">Step 3</h3>
           <ul className="list-group text-center">
-            <li className="list-group-item">
+            <li className="list-group-item mt-4">
               {`FirstName: ${state.firstName}`}
             </li>
             <li className="list-group-item">{`LastName: ${state.lastName}`}</li>

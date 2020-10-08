@@ -15,7 +15,8 @@ function FormDetails({ inputChange, state }) {
     <div className="container">
       <div className="row">
         <div className="col-4 offset-4">
-          <form>
+          <h3 className="text-center">Step 2</h3>
+          <form className="mt-4">
             <input
               onChange={inputChange("profession")}
               type="text"
