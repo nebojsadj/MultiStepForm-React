@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Confirm({ state }) {
-  console.log(state);
   return (
     <div className="container">
       <div className="row">
