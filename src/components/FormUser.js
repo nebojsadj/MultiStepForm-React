@@ -8,7 +8,17 @@ function FormUser({ inputChange, state }) {
 
   const nextForm = (e) => {
     e.preventDefault();
-    history.push("/details");
+
+    if (
+      firstName === "" ||
+      lastName === "" ||
+      email === "" ||
+      !email.includes("@gmail.com")
+    ) {
+      history.push("/");
+    } else {
+      history.push("/details");
+    }
   };
 
   return (

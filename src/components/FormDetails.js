@@ -8,7 +8,12 @@ function FormDetails({ inputChange, state }) {
 
   const toConfirm = (e) => {
     e.preventDefault();
-    history.push("/confirm");
+
+    if (profession === "" || workStatus === "" || phone === "") {
+      history.push("/details");
+    } else {
+      history.push("/confirm");
+    }
   };
 
   return (
