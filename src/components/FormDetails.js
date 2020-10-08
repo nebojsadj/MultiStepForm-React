@@ -4,6 +4,8 @@ import { Link, useHistory } from "react-router-dom";
 function FormDetails({ inputChange, state }) {
   const history = useHistory();
 
+  const { profession, workStatus, phone } = state;
+
   const toConfirm = (e) => {
     e.preventDefault();
     history.push("/confirm");
@@ -19,7 +21,7 @@ function FormDetails({ inputChange, state }) {
               type="text"
               className="form-control"
               placeholder="profession"
-              value={state.profession}
+              value={profession}
             />
             <br />
             <input
@@ -27,7 +29,7 @@ function FormDetails({ inputChange, state }) {
               type="text"
               className="form-control"
               placeholder="workStatus"
-              value={state.workStatus}
+              value={workStatus}
             />
             <br />
             <input
@@ -35,7 +37,7 @@ function FormDetails({ inputChange, state }) {
               type="text"
               className="form-control"
               placeholder="phone"
-              value={state.phone}
+              value={phone}
             />
             <br />
             <Link to="/" className="btn btn-secondary form-control">

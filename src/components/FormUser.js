@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 function FormUser({ inputChange, state }) {
   const history = useHistory();
 
+  const { firstName, lastName, email } = state;
+
   const nextForm = (e) => {
     e.preventDefault();
     history.push("/details");
@@ -19,7 +21,7 @@ function FormUser({ inputChange, state }) {
               type="text"
               className="form-control"
               placeholder="firstName"
-              value={state.firstName}
+              value={firstName}
             />
             <br />
             <input
@@ -27,7 +29,7 @@ function FormUser({ inputChange, state }) {
               type="text"
               className="form-control"
               placeholder="lastName"
-              value={state.lastName}
+              value={lastName}
             />
             <br />
             <input
@@ -35,7 +37,7 @@ function FormUser({ inputChange, state }) {
               type="text"
               className="form-control"
               placeholder="email"
-              value={state.email}
+              value={email}
             />
             <br />
             <button onClick={nextForm} className="btn btn-warning form-control">
