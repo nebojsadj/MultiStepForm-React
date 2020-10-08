@@ -13,7 +13,7 @@ function FormUser({ inputChange, state }) {
       firstName === "" ||
       lastName === "" ||
       email === "" ||
-      !email.includes("@gmail.com")
+      !email.includes("@")
     ) {
       history.push("/");
     } else {
@@ -30,7 +30,11 @@ function FormUser({ inputChange, state }) {
             <input
               onChange={inputChange("firstName")}
               type="text"
-              className="form-control"
+              className={
+                firstName === ""
+                  ? "form-control alert-warning"
+                  : "form-control alert-success"
+              }
               placeholder="firstName"
               value={firstName}
             />
@@ -38,7 +42,11 @@ function FormUser({ inputChange, state }) {
             <input
               onChange={inputChange("lastName")}
               type="text"
-              className="form-control"
+              className={
+                lastName === ""
+                  ? "form-control alert-warning"
+                  : "form-control alert-success"
+              }
               placeholder="lastName"
               value={lastName}
             />
@@ -46,12 +54,16 @@ function FormUser({ inputChange, state }) {
             <input
               onChange={inputChange("email")}
               type="text"
-              className="form-control"
+              className={
+                email === "" || !email.includes("@")
+                  ? "form-control alert-warning"
+                  : "form-control alert-success"
+              }
               placeholder="email"
               value={email}
             />
             <br />
-            <button onClick={nextForm} className="btn btn-warning form-control">
+            <button onClick={nextForm} className="btn btn-primary form-control">
               Next
             </button>
           </form>

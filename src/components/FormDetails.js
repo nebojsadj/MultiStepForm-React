@@ -25,7 +25,11 @@ function FormDetails({ inputChange, state }) {
             <input
               onChange={inputChange("profession")}
               type="text"
-              className="form-control"
+              className={
+                profession === ""
+                  ? "form-control alert-warning"
+                  : "form-control alert-success"
+              }
               placeholder="profession"
               value={profession}
             />
@@ -33,7 +37,11 @@ function FormDetails({ inputChange, state }) {
             <input
               onChange={inputChange("workStatus")}
               type="text"
-              className="form-control"
+              className={
+                workStatus === ""
+                  ? "form-control alert-warning"
+                  : "form-control alert-success"
+              }
               placeholder="workStatus"
               value={workStatus}
             />
@@ -41,7 +49,11 @@ function FormDetails({ inputChange, state }) {
             <input
               onChange={inputChange("phone")}
               type="text"
-              className="form-control"
+              className={
+                phone === ""
+                  ? "form-control alert-warning"
+                  : "form-control alert-success"
+              }
               placeholder="phone"
               value={phone}
             />
@@ -51,7 +63,7 @@ function FormDetails({ inputChange, state }) {
             </Link>
             <button
               onClick={toConfirm}
-              className="btn btn-warning form-control mt-3"
+              className="btn btn-primary form-control mt-3"
             >
               Next
             </button>

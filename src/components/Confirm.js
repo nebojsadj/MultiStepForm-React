@@ -22,7 +22,7 @@ function Confirm({ state }) {
           <Link to="/details" className="btn btn-secondary form-control mt-3">
             Back
           </Link>
-          <Link to="/home" className="btn btn-warning form-control mt-3">
+          <Link to="/home" className="btn btn-primary form-control mt-3">
             Confirm
           </Link>
         </div>
