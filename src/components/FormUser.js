@@ -8,17 +8,7 @@ function FormUser({ inputChange, state }) {
 
   const nextForm = (e) => {
     e.preventDefault();
-
-    if (
-      firstName === "" ||
-      lastName === "" ||
-      email === "" ||
-      !email.includes("@")
-    ) {
-      history.push("/");
-    } else {
-      history.push("/details");
-    }
+    history.push("/details");
   };
 
   return (
@@ -31,9 +21,7 @@ function FormUser({ inputChange, state }) {
               onChange={inputChange("firstName")}
               type="text"
               className={
-                firstName === ""
-                  ? "form-control alert-warning"
-                  : "form-control alert-success"
+                (firstName && "form-control alert-success ") || "form-control"
               }
               placeholder="firstName"
               value={firstName}
@@ -43,9 +31,7 @@ function FormUser({ inputChange, state }) {
               onChange={inputChange("lastName")}
               type="text"
               className={
-                lastName === ""
-                  ? "form-control alert-warning"
-                  : "form-control alert-success"
+                (lastName && "form-control alert-success") || "form-control"
               }
               placeholder="lastName"
               value={lastName}
@@ -55,15 +41,20 @@ function FormUser({ inputChange, state }) {
               onChange={inputChange("email")}
               type="text"
               className={
-                email === "" || !email.includes("@")
-                  ? "form-control alert-warning"
-                  : "form-control alert-success"
+                (email.includes("@") && "form-control alert-success") ||
+                "form-control"
               }
               placeholder="email"
               value={email}
             />
             <br />
-            <button onClick={nextForm} className="btn btn-primary form-control">
+            <button
+              disabled={
+                !firstName || !lastName || !email || !email.includes("@")
+              }
+              onClick={nextForm}
+              className="btn btn-primary form-control"
+            >
               Next
             </button>
           </form>

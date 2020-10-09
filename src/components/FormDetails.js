@@ -8,12 +8,7 @@ function FormDetails({ inputChange, state }) {
 
   const toConfirm = (e) => {
     e.preventDefault();
-
-    if (profession === "" || workStatus === "" || phone === "") {
-      history.push("/details");
-    } else {
-      history.push("/confirm");
-    }
+    history.push("/confirm");
   };
 
   return (
@@ -26,9 +21,7 @@ function FormDetails({ inputChange, state }) {
               onChange={inputChange("profession")}
               type="text"
               className={
-                profession === ""
-                  ? "form-control alert-warning"
-                  : "form-control alert-success"
+                (profession && "form-control alert-success") || "form-control"
               }
               placeholder="profession"
               value={profession}
@@ -38,9 +31,7 @@ function FormDetails({ inputChange, state }) {
               onChange={inputChange("workStatus")}
               type="text"
               className={
-                workStatus === ""
-                  ? "form-control alert-warning"
-                  : "form-control alert-success"
+                (workStatus && "form-control alert-success") || "form-control"
               }
               placeholder="workStatus"
               value={workStatus}
@@ -50,9 +41,7 @@ function FormDetails({ inputChange, state }) {
               onChange={inputChange("phone")}
               type="text"
               className={
-                phone === ""
-                  ? "form-control alert-warning"
-                  : "form-control alert-success"
+                (phone && "form-control alert-success") || "form-control"
               }
               placeholder="phone"
               value={phone}
@@ -62,6 +51,7 @@ function FormDetails({ inputChange, state }) {
               Back
             </Link>
             <button
+              disabled={!profession || !workStatus || !phone}
               onClick={toConfirm}
               className="btn btn-primary form-control mt-3"
             >
